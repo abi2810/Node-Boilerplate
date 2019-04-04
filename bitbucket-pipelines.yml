@@ -1,0 +1,28 @@
+image: node:latest
+pipelines:
+    branches:
+        # staging:
+        #     - step:
+        #             caches:
+        #                 - node
+        #             script:
+        #                 - apt-get update && apt-get install -y rsync
+        #                 - ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
+        #                 - cd $BITBUCKET_CLONE_DIR
+        #                 - rsync -r -v -e ssh . $SSH_USER_NAME@$SERVER_IP:/var/www/listado-staging-api --delete-before --exclude '.git'
+        #                 - ssh $SSH_USER_NAME@$SERVER_IP 'cd /var/www/listado-staging-api && npm install'
+        #                 # - ssh $SSH_USER_NAME@$SERVER_IP 'pm2 delete all'
+        #                 - ssh $SSH_USER_NAME@$SERVER_IP 'pm2 restart all'
+        # master:
+        #     - step:
+        #             caches:
+        #                 - node
+        #             script:
+        #                 - apt-get update && apt-get install -y rsync
+        #                 - mkdir -p ~/.ssh
+        #                 - (umask  077 ; echo $AUTO_DEPLOY_PROD_PRIVATE_KEY | base64 --decode > ~/.ssh/id_rsa)
+        #                 - ssh-keyscan -H $SERVER_PROD_IP >> ~/.ssh/known_hosts
+        #                 - cd $BITBUCKET_CLONE_DIR
+        #                 - rsync -r -v -e ssh . $SSH_USER_NAME@$SERVER_PROD_IP:/var/www/production --delete-before --exclude '.git'
+        #                 - npm install
+        #                 - ssh $SSH_USER_NAME@$SERVER_PROD_IP 'pm2 restart all'
